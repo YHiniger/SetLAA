@@ -81,6 +81,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="app.manifest" />
+    <None Include="README.md" />
     <None Include="SetLAA.snk" />
   </ItemGroup>
   <ItemGroup>
