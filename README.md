@@ -8,7 +8,6 @@ Sets (or clears) the Large Address-Aware flag of an application, given its file 
 SetLAA[.exe] appFileName.exe [state]
 - appFileName.exe: the name of the target application (*.exe) file.
 - state: optional, 0 to clear the LAA flag, 1 to set it; defaults to 1.
-[] indicates an optional argument (or part of an argument
 
 Or simply drag and drop the target application file on SetLAA.exe in the file explorer !
 
