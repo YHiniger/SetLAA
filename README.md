@@ -13,4 +13,4 @@ Or simply drag and drop the target application file on SetLAA.exe in the file ex
 
 ### Notes
 - Make a backup of the original application before patching it. SetLAA won't do it for you.
-- Beware that the target application is not running. This would simply cause SetLAA to fail.
+- The target application must not be running. This would simply cause SetLAA to fail.
