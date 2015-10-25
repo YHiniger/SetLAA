@@ -66,10 +66,17 @@ namespace SetLAA
 				throw new NotSupportedException( "PE header not found." );
 			}
 
-			input.Position = peHeaderPosition + 0x16;
-			var buffer = new byte[ 2 ];
-			input.Read( buffer, 0, 2 );
-			return ( BitConverter.ToInt16( buffer, 0 ) & LargeAddressAwareFlag ) == LargeAddressAwareFlag;
+			try
+			{
+				input.Position = peHeaderPosition + 0x16;
+				var buffer = new byte[ 2 ];
+				input.Read( buffer, 0, 2 );
+				return ( BitConverter.ToInt16( buffer, 0 ) & LargeAddressAwareFlag ) == LargeAddressAwareFlag;
+			}
+			catch( Exception )
+			{
+				throw new InvalidDataException( "Invalid field position." );
+			}
 		}
 
 
@@ -109,7 +116,14 @@ namespace SetLAA
 
 			var flagsPosition = peHeaderPosition + 0x16;
 
-			stream.Position = flagsPosition;
+			try
+			{
+				stream.Position = flagsPosition;
+			}
+			catch( Exception )
+			{
+				throw new InvalidDataException( "Invalid field position." );
+			}
 
 			var buffer = new byte[ 2 ];
 			stream.Read( buffer, 0, 2 );
@@ -179,9 +193,13 @@ namespace SetLAA
 					if( IsLargeAddressAware( stream ) != state )
 						result = SetLargeAddressAware( stream, state );
 			}
-			catch( Exception ex )
+			catch( InvalidDataException )
 			{
-				throw new InvalidOperationException( "Failed to modify Large Address-Aware flag.", ex );
+				throw;
+			}
+			catch( NotSupportedException )
+			{
+				throw;
 			}
 
 
