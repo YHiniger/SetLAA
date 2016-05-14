@@ -33,6 +33,12 @@ namespace SetLAA
 			if( args.Length > 1 )
 				state = ( args[ 1 ] != "0" );
 
+			// TODO - make a backup copy of the target application !
+			var backupFileName = Path.ChangeExtension( appFileName, "original" );
+			if( File.Exists( backupFileName ) )
+				File.Delete( backupFileName );
+			File.Copy( appFileName, backupFileName );
+
 			try
 			{
 				if( !LAA.SetLargeAddressAware( appFileName, state ) )

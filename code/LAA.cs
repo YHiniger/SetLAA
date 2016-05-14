@@ -170,7 +170,7 @@ namespace SetLAA
 			}
 
 
-			var tempFileName = Path.ChangeExtension( applicationFileName, "laa" );
+			var tempFileName = Path.ChangeExtension( applicationFileName, "laa-patch" );
 			try
 			{
 				if( File.Exists( tempFileName ) )
