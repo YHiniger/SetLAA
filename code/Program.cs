@@ -7,7 +7,7 @@ namespace SetLAA
 {
 	using Properties;
 
-	
+
 	internal static class Program
 	{
 		

@@ -37,7 +37,7 @@ namespace SetLAA
 
 
 		/// <summary>Returns a value indicating whether the Large Address-Aware (LAA) flag is set.</summary>
-		/// <param name="input">A stream to read the binary image (executable); must not be null. Its position must be at the MZ header.</param>
+		/// <param name="input">A stream to read the binary image (executable); must not be null. Its position must be set to the MZ header.</param>
 		/// <returns>Returns a value indicating whether the Large Address-Aware (LAA) flag is set.</returns>
 		/// <exception cref="ArgumentNullException"/>
 		/// <exception cref="ArgumentException"/>
